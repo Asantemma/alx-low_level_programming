@@ -5,7 +5,7 @@
  * @src: input value
  * @n: input value
  *
- * Return: 0
+ * Return: dest
  */
 char *_strncpy(char *dest, char *src, int n)
 {
@@ -23,6 +23,6 @@ char *_strncpy(char *dest, char *src, int n)
 		x++;
 	}
 
-	return (0);
+	return (dest);
 }
 
