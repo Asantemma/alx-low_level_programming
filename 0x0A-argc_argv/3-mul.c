@@ -47,30 +47,30 @@ int _atoi(char *s)
 	return (n);
 }
 
-
 /**
- * main - multiplies two numbers.
+ * main - multiplies two numbers
  * @argc: number of arguments
  * @argv: array of arguments
  *
- * Return: 0, 1 if no argument and print error
+ * Return: 0 (Success), 1 (Error)
  */
 
 int main(int argc, char *argv[])
 {
-	int i, j, prod = 0;
-	
+	int product, num1, num2;
+
 	if (argc < 3 || argc > 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	i = _atoi(argv[1]);
-	j = _atoi(argv[2]);
-	prod = i * j;
-	
-	printf("%d\n", prod);
-	}
+	num1 = _atoi(argv[1]);
+	num2 = _atoi(argv[2]);
+	product = num1 * num2;
+
+	printf("%d\n", product);
+
 	return (0);
 }
+
