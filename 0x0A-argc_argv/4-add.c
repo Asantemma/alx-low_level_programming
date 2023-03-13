@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	count = 1;
 	while (count < argc)
 	{
-		if (check_num(argv[count]))
+		if(check_num(argv[count]))
 
 		{
 			int_str = atoi(argv[count]);
