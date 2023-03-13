@@ -28,9 +28,9 @@ int check_num(char *str)
 }
 
 /**
- * main - Print the name of the program
+ * main - Add all positive numbers
  * @argc: Count arguments
- * @argv: Arguments
+ * @argv: Array of Arguments
  *
  * Return: Always 0 (Success)
  */
