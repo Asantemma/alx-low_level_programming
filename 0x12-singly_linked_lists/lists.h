@@ -2,18 +2,18 @@
 #define LISTS_H
 
 /**
- * struct list_l - singly linked list
+ * struct list_s - singly linked list
  * @str: string to use
  * @len: length of the string
  * @next: points to the next nodes
  *
- * Description: singly linked lists 
+ * Description: singly linked lists tasks
  */
-typedef struct list_l
+typedef struct list_s
 {
-		char *str;
-			unsigned int len;
-				struct list_l *next;
+	char *str;
+	unsigned int len;
+	struct list_s *next;
 } list_t;
 
 size_t print_list(const list_t *h);
