@@ -20,5 +20,5 @@ listint_t *temp = head;
 	if (temp)
 	return (temp);
 	else
-	return ( NULL);
+	return (NULL);
 }
