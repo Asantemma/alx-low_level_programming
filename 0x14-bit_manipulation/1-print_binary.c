@@ -10,18 +10,17 @@
 void print_binary(unsigned long int n)
 {
 int i;
-unsigned long int count;
+char *count = "0";
 
-count << "0";
 for (i = 1 << 30; i > 0; i = i / 2)
 	{
-	if((n & i) != 0)
+	if ((n & i) != 0)
 		{
-		count << "1";
+		count = "1";
 		}
 	else
 		{
-		count << "0";
+		count = "0";
 		}
 	}
 }
