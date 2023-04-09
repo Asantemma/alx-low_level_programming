@@ -24,7 +24,7 @@ unsigned long int new;
 		else if (cout)
 			_putchar('0');
 	}
-	if (cout == NULL)
+	if (!cout)
 		_putchar('0');
 }
 
