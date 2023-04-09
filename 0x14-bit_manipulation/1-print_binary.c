@@ -9,18 +9,22 @@
 
 void print_binary(unsigned long int n)
 {
-int i;
-char *count = "0";
+int a, cout = 0;
+unsigned long int new;
 
-for (i = 1 << 30; i > 0; i = i / 2)
+	for (a = 63; a >= 0; a--)
 	{
-	if ((n & i) != 0)
+		new = n >> a;
+
+		if (new & 1)
 		{
-		count = "1";
+			_putchar('1');
+			cout++;
 		}
-	else
-		{
-		count = "0";
-		}
+		else if (cout)
+			_putchar('0');
 	}
+	if (cout == NULL)
+		_putchar('0');
 }
+
