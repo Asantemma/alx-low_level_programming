@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 
 	buffer = create_buffer(argv[2]);
 	file_from = open(argv[1], O_RDONLY);
-	r = read(from, buffer, 1024);
+	r = read(file_from, buffer, 1024);
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 
-		r = read(from, buffer, 1024);
+		r = read(file_from, buffer, 1024);
 		file_to = open(argv[2], O_WRONLY | O_APPEND);
 
 } while (r > 0);
