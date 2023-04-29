@@ -12,8 +12,8 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	int i, cout = 0;
-	unsigned int new;
-	unsigned int not_include = n ^ m;
+	unsigned long int new;
+	unsigned long int not_include = n ^ m;
 
 	for (i = 63; i >= 0; i--)
 	{
