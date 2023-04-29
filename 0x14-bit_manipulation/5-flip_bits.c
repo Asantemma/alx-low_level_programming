@@ -15,7 +15,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int new;
 	unsigned int not_include = n ^ m;
 
-	for (i = 0; i <= 63; i++)
+	for (i = 63; i >= 0; i--)
 	{
 		new = not_include >> i;
 		if (new & 1)
