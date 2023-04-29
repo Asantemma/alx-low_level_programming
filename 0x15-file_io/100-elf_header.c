@@ -29,7 +29,7 @@ void print_magic(unsigned char *e_ident)
 {
 	int index;
 
-	printf("MAGIC: ");
+	printf("  Magic:   ");
 
 	for (index = 0; index < EI_NIDENT; index++)
 	{
@@ -39,6 +39,7 @@ void print_magic(unsigned char *e_ident)
 	printf("\n");
 	else
 	printf(" ");
+
 	}
 }
 
@@ -48,7 +49,7 @@ void print_magic(unsigned char *e_ident)
  */
 void print_class(unsigned char *e_ident)
 {
-	printf("CLASS; ");
+	printf("  Class:                             ");
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -72,7 +73,7 @@ void print_class(unsigned char *e_ident)
  */
 void print_data(unsigned char *e_ident)
 {
-	printf("Data: ");
+	printf("  Data:                              ");
 
 	switch (e_ident[EI_DATA])
 	{
@@ -96,12 +97,12 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("Version:%d", e_ident[EI_VERSION]);
+	printf("  Version:                           %d", e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
 	{
 	case EV_CURRENT:
-		printf("current\n");
+		printf(" (current)\n");
 		break;
 	default:
 		printf("\n");
@@ -123,14 +124,8 @@ void print_osabi(unsigned char *e_ident)
 	case ELFOSABI_NONE:
 		printf("UNIX - System V\n");
 		break;
-	case ELFOSABI_HPUX:
-		printf("UNIX - HP-UX\n");
-		break;
 	case ELFOSABI_NETBSD:
 		printf("UNIX - NetBSD\n");
-		break;
-	case ELFOSABI_LINUX:
-		printf("UNIX - Linux\n");
 		break;
 	case ELFOSABI_SOLARIS:
 		printf("UNIX - Solaris\n");
@@ -150,6 +145,14 @@ void print_osabi(unsigned char *e_ident)
 	case ELFOSABI_STANDALONE:
 		printf("Standalone App\n");
 		break;
+
+	case ELFOSABI_LINUX:
+		printf("UNIX - Linux\n");
+		break;
+	case ELFOSABI_HPUX:
+		printf("UNIX - HP-UX\n");
+		break;
+
 	default:
 		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
@@ -162,8 +165,9 @@ void print_osabi(unsigned char *e_ident)
  */
 void print_abi(unsigned char *e_ident)
 {
-	printf("ABI Version: %d\n",
-	       e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n",
+	e_ident[EI_ABIVERSION]);
+
 }
 
 /**
@@ -176,7 +180,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
 
-	printf("  Type: ");
+	printf("  Type:                              ");
 	switch (e_type)
 	{
 	case ET_NONE:
@@ -210,7 +214,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
-	e_entry = ((e_entry << 8) & 0xFF00FF00) |((e_entry >> 8) & 0xFF00FF);
+	e_entry = ((e_entry << 8) & 0xFF00FF00) | ((e_entry >> 8) & 0xFF00FF);
 	e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 
@@ -226,12 +230,12 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
  * @elf: Elf file descriptor.
  *
  */
-
 void close_elf(int elf)
 {
 	if (close(elf) == -1)
 	{
 	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", elf);
+
 	exit(98);
 	}
 }
@@ -245,7 +249,6 @@ void close_elf(int elf)
  *
  * Description: If the file is not an ELF File or fails - exit code 98.
  */
-
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
