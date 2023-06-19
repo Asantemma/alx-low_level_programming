@@ -22,7 +22,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		if (x == index)
 			return (ptr);
 
-		ptr = *ptr.next;
+		ptr = (*ptr).next;
 		x++;
 	}
 
